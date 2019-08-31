@@ -19,6 +19,7 @@ state = {
 constructor(){
   super();
   this.showRandomPlanet();
+  // setInterval(this.showRandomPlanet, 5000)
 }
 
 
@@ -35,12 +36,12 @@ whenError = (err) => {
 }
 
 
-showRandomPlanet(){
+showRandomPlanet = () => {
   // const id = 300000;
 const id = Math.floor(Math.random()*20) +  2;
 console.log(id);
 this.swService.getPlanet(id).then(this.onPlanedLoad).catch(this.whenError);
-}
+};
 
 
 
@@ -71,8 +72,6 @@ render() {
 const LoadedPlanet = ( { planet } ) => {
 
   const {id, name, population, rotationPer, diameter} = planet;
-
-              console.log(id);
 
       return (
         <React.Fragment>

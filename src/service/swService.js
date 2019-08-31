@@ -55,7 +55,8 @@ async getStarship(id){
 
 
 _idExtractor(elem){
-    const idExtractorRegExp =/\/([0-9])*\/$/;
+    const idExtractorRegExp =/\/([0-9]+)*\/$/;
+    console.log(elem.url.match(idExtractorRegExp)[1])
     return elem.url.match(idExtractorRegExp)[1];
 }
 
