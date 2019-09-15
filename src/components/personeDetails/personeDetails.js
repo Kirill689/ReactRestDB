@@ -32,18 +32,15 @@ updatePerson(){
 }
 render(){
 
-  console.log(this.state)
-
     if(!this.state.person){
       return <span>Select Person From List</span>;
     }
     
-    const { person: {
-            id, name, gender, 
+    const { id, name, gender, 
             birthYear, eyeColor
-                    }} = this.state.person;
+                    } = this.state.person;
 
-
+ 
 
     return(
     <div className="person-details card">
