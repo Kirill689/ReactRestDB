@@ -3,7 +3,7 @@ export default class SwApiService {
 
 _baseSwApiURL = `https://swapi.co/api`;
 
-async getResource (url){
+getResource = async (url) =>{
 
     const response = await fetch (`${this._baseSwApiURL}${url}`);
     if(!response.ok){
@@ -21,7 +21,7 @@ async getAllPeople(){
 };
 
 
-async getPerson(id){
+getPerson = async (id) => {
     const person = await this.getResource(`/people/${id}/`);
     return  this._transformPersonData(person);
 };
@@ -54,13 +54,13 @@ async getStarship(id){
 
 
 
-_idExtractor(elem){
+_idExtractor = (elem) => {
     const idExtractorRegExp =/\/([0-9]+)*\/$/;
-    console.log(elem.url.match(idExtractorRegExp)[1])
     return elem.url.match(idExtractorRegExp)[1];
 }
 
-_transformPlanetData(elem){
+_transformPlanetData = (elem) =>{
+
     return  {
         id: this._idExtractor(elem),
         name:elem.name,
@@ -70,7 +70,7 @@ _transformPlanetData(elem){
             } 
 }
 
-_transformStarshipData(elem){
+_transformStarshipData = (elem) => {
     return {
         id: this._idExtractor(elem),
         name: elem.name,
@@ -84,13 +84,13 @@ _transformStarshipData(elem){
     }
 }
 
-_transformPersonData(elem){
-    return{
+_transformPersonData = (elem) => {
+    return{     
         id:this._idExtractor(elem),
-        name:elem.name,
-        gender:elem.gender,
-        birthYear:elem.birthYear,
-        eyeColor:elem.eyeColor
+        name: elem.name,
+        gender: elem.gender,
+        birthYear: elem.birthYear,
+        eyeColor: elem.eyeColor
     }
 }
 
