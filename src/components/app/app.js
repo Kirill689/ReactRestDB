@@ -12,7 +12,7 @@ export default class Application extends Component {
 
     state = {
         showRandomPlanet: true,  
-        selectedPerson: 5    
+        selectedPerson: 1    
     }
 
 

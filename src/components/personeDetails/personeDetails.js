@@ -30,6 +30,17 @@ updatePerson(){
     this.setState({ person });
   });
 }
+
+
+
+componentDidUpdate(prevProps){
+    if(this.props.personId != prevProps.personId){
+      this.updatePerson();
+    }
+}
+
+
+
 render(){
 
     if(!this.state.person){
@@ -39,8 +50,6 @@ render(){
     const { id, name, gender, 
             birthYear, eyeColor
                     } = this.state.person;
-
- 
 
     return(
     <div className="person-details card">
@@ -52,7 +61,7 @@ render(){
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
               <span className="term">Gender</span>
-            <span>{gender}</span>
+              <span>{gender}</span>
             </li>
             <li className="list-group-item">
               <span className="term">Birth Year</span>

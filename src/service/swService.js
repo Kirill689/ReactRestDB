@@ -89,8 +89,8 @@ _transformPersonData = (elem) => {
         id:this._idExtractor(elem),
         name: elem.name,
         gender: elem.gender,
-        birthYear: elem.birthYear,
-        eyeColor: elem.eyeColor
+        birthYear: elem.birth_year,
+        eyeColor: elem.eye_color
     }
 }
 
